@@ -5,21 +5,21 @@ const tickets = [];
 let i = 0;
 let choice = 1
 
-console.log(`=================================
-        RAILWAY MANAGER
-=================================
-
-1. Afficher les trajets
-2. Acheter un ticket
-3. Afficher les tickets
-4. Annuler un ticket
-5. Rechercher un ticket
-6. Filtrer les trajets
-7. Trier les trajets
-0. Quitter`);
-
 while(choice > 0)
 {
+    console.log(`=================================
+            RAILWAY MANAGER
+    =================================
+
+    1. Afficher les trajets
+    2. Acheter un ticket
+    3. Afficher les tickets
+    4. Annuler un ticket
+    5. Rechercher un ticket
+    6. Filtrer les trajets
+    7. Trier les trajets
+    0. Quitter`);
+
     choice = Number(prompt("CHOOSE YOUR NEED NUMBER : "))
     switch(choice) 
     {
@@ -52,12 +52,24 @@ while(choice > 0)
                     if (trips[i].availableSeats > 0)
                     {
                         console.log("THERE IS AVAILBLE SEAT")
+                        let seat = 1;
+                        let j = 0;
+                        
+                        while(j < tickets.length)
+                        {
+                            if(tickets[j].tripId == id)
+                            {
+                                seat++;
+                            }
+                            j++
+                        }
+
                         let ticket = 
                         {
                             id : tickets.length + 1,
                             passengerName : name,
                             tripId : trips[i].id,
-                            seatNumber : tickets.length + 1,
+                            seatNumber : seat,
                             price : trips[i].price
                         };
 

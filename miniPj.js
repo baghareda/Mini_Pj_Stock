@@ -127,6 +127,26 @@ while(choice > 0)
             break;
         
         case 6 :
-            
+
+            i = 0;
+            let cityfound = false
+            let city = prompt("ENTER THE CITY YOU WANT TO FILTER : ")
+
+            while(i < trips.length)
+            {
+                if(trips[i].departure == city)
+                {
+                    cityfound = true
+                    console.log(trips[i].departure + " → "
+                    + trips[i].destination + " : "
+                    + trips[i].price + " DH")
+                }
+                i++;
+            }
+            if (cityfound === false)
+            {
+                console.log("NO TRIP FOUND")
+            }
+            break;
     }
 }

@@ -148,5 +148,24 @@ while(choice > 0)
                 console.log("NO TRIP FOUND")
             }
             break;
+
+        case 7 :
+            i = 0;
+            let g;
+            while(i < trips.length)
+            {
+                g = 0;
+                while(g < trips.length - 1)
+                {
+                    if (trips[g].price > trips[g + 1].price)
+                    {
+                        let swap = trips[g];
+                        trips[g] = trips[g + 1];
+                        trips[g + 1] = swap;
+                    }
+                    g++;
+                }
+                i++;
+            }   
     }
 }

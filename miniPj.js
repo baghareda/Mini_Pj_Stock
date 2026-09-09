@@ -5,6 +5,19 @@ const tickets = [];
 let i = 0;
 let choice = 1
 
+console.log(`=================================
+        RAILWAY MANAGER
+=================================
+
+1. Afficher les trajets
+2. Acheter un ticket
+3. Afficher les tickets
+4. Annuler un ticket
+5. Rechercher un ticket
+6. Filtrer les trajets
+7. Trier les trajets
+0. Quitter`);
+
 while(choice > 0)
 {
     choice = Number(prompt("CHOOSE YOUR NEED NUMBER : "))
@@ -166,6 +179,21 @@ while(choice > 0)
                     g++;
                 }
                 i++;
-            }   
+            }
+            i = 0;
+            while(i < trips.length)
+            {
+                console.log(trips[i])
+                i++;
+            }
+            break;
+
+            case 0 :
+                console.log("SEE YOU NEXT TRIP");
+                break;
+            
+            default : 
+                console.log("NON OF THE ABOVE");
+                break;
     }
 }

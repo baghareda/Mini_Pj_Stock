@@ -8,8 +8,8 @@ let choice = 1
 while(choice > 0)
 {
     console.log(`=================================
-            RAILWAY MANAGER
-    =================================
+        RAILWAY MANAGER
+=================================
 
     1. Afficher les trajets
     2. Acheter un ticket
@@ -27,12 +27,13 @@ while(choice > 0)
             i = 0;
             while(i < trips.length)
             {
-                console.log(`THE TRIP ID : ${trips[i].id}
-                    DEPART : ${trips[i].departure}  ==>  DESTINATION : ${trips[i].destination}
-                    DEPARTURE TIME : ${trips[i].departureTime}
-                    ARRIVAL TIME : ${trips[i].arrivalTime}
-                    PRICE : ${trips[i].price}
-                    PLACES DISPONIBLE : ${trips[i].availableSeats}`)
+
+                console.log(`#: ${trips[i].id}`)
+                console.log(`   DEPART : ${trips[i].departure}  ==>  DESTINATION : ${trips[i].destination}`)
+                console.log(`   DEPARTURE TIME : ${trips[i].departureTime}`)
+                console.log(`   ARRIVAL TIME : ${trips[i].arrivalTime}`)
+                console.log(`   PRICE : ${trips[i].price}`)
+                console.log(`   PLACES DISPONIBLE : ${trips[i].availableSeats}`)
                 i++;
             }
             break;
@@ -54,7 +55,7 @@ while(choice > 0)
                         console.log("THERE IS AVAILBLE SEAT")
                         let seat = 1;
                         let j = 0;
-                        
+
                         while(j < tickets.length)
                         {
                             if(tickets[j].tripId == id)
@@ -93,8 +94,21 @@ while(choice > 0)
             i = 0;
             while(i < tickets.length)
             {
-                console.log(tickets[i])
-                i++;
+                let f = 0;
+
+                while(f < trips.length)
+                {
+                    if(trips[f].id == tickets[i].tripId)
+                    {
+                        console.log(`#${tickets[i].id}`)
+                        console.log(`Passanger Name : ${tickets[i].passengerName}`)
+                        console.log(`TRAJE : ${trips[f].departure} ===> ${trips[f].destination}`)
+                        console.log(`PLACE : ${tickets[i].seatNumber}`)
+                        console.log(`PRICE : ${trips[f].price}`)
+                    }
+                    f++
+                }
+                i++
             }
             break;
 
@@ -129,7 +143,6 @@ while(choice > 0)
                 console.log("TICKET NOT FOUND")
             }
             break;
-        
         case 5 :
 
             i = 0;
@@ -203,7 +216,7 @@ while(choice > 0)
             case 0 :
                 console.log("SEE YOU NEXT TRIP");
                 break;
-            
+
             default : 
                 console.log("NON OF THE ABOVE");
                 break;

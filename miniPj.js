@@ -6,7 +6,7 @@ let i = 0;
 let choice = 1
 let nextTicketId = 1;
 
-while(choice > 0)
+while(choice !== 0)
 {
     console.log(`=================================
         RAILWAY MANAGER

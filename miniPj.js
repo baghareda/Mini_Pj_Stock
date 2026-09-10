@@ -4,6 +4,7 @@ const trips = require ("./data.js");
 const tickets = [];
 let i = 0;
 let choice = 1
+let nextTicketId = 1;
 
 while(choice > 0)
 {
@@ -58,16 +59,20 @@ while(choice > 0)
 
                         while(j < tickets.length)
                         {
-                            if(tickets[j].tripId == id)
+                            if(tickets[j].tripId == id && tickets[j].seatNumber == seat)
                             {
                                 seat++;
+                                j = 0;
                             }
-                            j++
+                            else
+                            {
+                                j++
+                            }
                         }
 
                         let ticket = 
                         {
-                            id : tickets.length + 1,
+                            id: nextTicketId,
                             passengerName : name,
                             tripId : trips[i].id,
                             seatNumber : seat,
@@ -75,6 +80,7 @@ while(choice > 0)
                         };
 
                         tickets.push(ticket);
+                        nextTicketId++;
                         trips[i].availableSeats--;
                         console.log("YOUR BOUGHT A TICKET SUCCESFULLY")
                     }
@@ -124,6 +130,7 @@ while(choice > 0)
                 if(tickets[i].id == ticketId)
                 {
                     ticket_found = true
+
                     let fnd = tickets[i].tripId
                     while(j < trips.length)
                     {

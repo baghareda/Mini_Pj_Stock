@@ -181,7 +181,7 @@ while(choice !== 0)
 
             while(i < tickets.length)
             {
-                if (tickets[i].passengerName == nom)
+                if (tickets[i].passengerName.toLowerCase().trim() == nom.toLowerCase().trim())
                 {
                     let trip = trips.find(t => t.id == tickets[i].tripId)
                     tickfound = true;
@@ -207,7 +207,7 @@ Prix : ${tickets[i].price} DH\n`)
 
             while(i < trips.length)
             {
-                if(trips[i].departure == city)
+                if(trips[i].departure.trim == city)
                 {
                     cityfound = true
                     console.log(trips[i].departure + " → "

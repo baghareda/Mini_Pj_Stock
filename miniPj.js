@@ -10,7 +10,7 @@ const tickets = [
     { id: 6, passengerName: "Omar", tripId: 3, seatNumber: 3, price: 90 },
     { id: 7, passengerName: "Khadija", tripId: 4, seatNumber: 1, price: 120 },
     { id: 8, passengerName: "Mehdi", tripId: 4, seatNumber: 2, price: 120 },
-    { id: 9, passengerName: "Salma", tripId: 4, seatNumber: 3, price: 120 },
+    { id: 9, passengerName: "Ahmed", tripId: 4, seatNumber: 3, price: 120 },
     { id: 10, passengerName: "Hamza", tripId: 4, seatNumber: 4, price: 120 }
 ];
 
@@ -183,8 +183,13 @@ while(choice !== 0)
             {
                 if (tickets[i].passengerName == nom)
                 {
+                    let trip = trips.find(t => t.id == tickets[i].tripId)
                     tickfound = true;
-                    console.log(tickets[i])
+                    console.log(`\nTicket #${tickets[i].id}
+Passager : ${tickets[i].passengerName}
+Trajet : ${trip.departure} → ${trip.destination}
+Place : ${tickets[i].seatNumber}
+Prix : ${tickets[i].price} DH\n`)
                 }
                 i++;
             }

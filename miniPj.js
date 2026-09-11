@@ -1,10 +1,33 @@
 const prompt = require ("prompt-sync")();
 const trips = require ("./data.js");
 
-const tickets = [];
+const tickets = [
+    { id: 1, passengerName: "Ahmed", tripId: 1, seatNumber: 1, price: 25 },
+    { id: 2, passengerName: "Fatima", tripId: 1, seatNumber: 2, price: 25 },
+    { id: 3, passengerName: "Youssef", tripId: 2, seatNumber: 1, price: 30 },
+    { id: 4, passengerName: "Ayoub", tripId: 3, seatNumber: 1, price: 90 },
+    { id: 5, passengerName: "Sanae", tripId: 3, seatNumber: 2, price: 90 },
+    { id: 6, passengerName: "Omar", tripId: 3, seatNumber: 3, price: 90 },
+    { id: 7, passengerName: "Khadija", tripId: 4, seatNumber: 1, price: 120 },
+    { id: 8, passengerName: "Mehdi", tripId: 4, seatNumber: 2, price: 120 },
+    { id: 9, passengerName: "Salma", tripId: 4, seatNumber: 3, price: 120 },
+    { id: 10, passengerName: "Hamza", tripId: 4, seatNumber: 4, price: 120 }
+];
+
+for (let ticket of tickets)
+{
+    for(let trip of trips)
+    {
+        if (ticket.tripId == trip.id)
+        {
+            trip.availableSeats--;
+        }
+    }
+}
+
 let i = 0;
 let choice = 1
-let nextTicketId = 1;
+let nextTicketId = 11;
 
 while(choice !== 0)
 {
@@ -197,16 +220,18 @@ while(choice !== 0)
         case 7 :
             i = 0;
             let g;
+            let copy = [...trips];
+
             while(i < trips.length)
             {
                 g = 0;
                 while(g < trips.length - 1)
                 {
-                    if (trips[g].price > trips[g + 1].price)
+                    if (copy[g].price > copy[g + 1].price)
                     {
-                        let swap = trips[g];
-                        trips[g] = trips[g + 1];
-                        trips[g + 1] = swap;
+                        let swap = copy[g];
+                        copy[g] = copy[g + 1];
+                        copy[g + 1] = swap;
                     }
                     g++;
                 }
@@ -215,7 +240,7 @@ while(choice !== 0)
             i = 0;
             while(i < trips.length)
             {
-                console.log(trips[i])
+                console.log(`${copy[i].departure} → ${copy[i].destination} : ${copy[i].price} DH`)
                 i++;
             }
             break;

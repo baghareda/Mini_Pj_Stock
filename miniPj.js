@@ -14,6 +14,7 @@ const tickets = [
     { id: 10, passengerName: "Hamza", tripId: 4, seatNumber: 4, price: 120 }
 ];
 
+// 7yed ocupied seats from the available ones
 for (let ticket of tickets)
 {
     for(let trip of trips)
@@ -143,7 +144,6 @@ while(choice !== 0)
 
         case 4 :
             i = 0;
-            let j = 0;
             let ticket_found = false;
 
             let ticketId = Number(prompt("ENTER THE TICKET ID "))
@@ -155,6 +155,8 @@ while(choice !== 0)
                     ticket_found = true
 
                     let fnd = tickets[i].tripId
+                    let j = 0;
+
                     while(j < trips.length)
                     {
                         if (trips[j].id == fnd)
@@ -183,7 +185,17 @@ while(choice !== 0)
             {
                 if (tickets[i].passengerName.toLowerCase().trim() == nom.toLowerCase().trim())
                 {
-                    let trip = trips.find(t => t.id == tickets[i].tripId)
+                    let trip;
+                    let j = 0;
+
+                    while (j < trips.length)
+                    {
+                        if (trips[j].id == tickets[i].tripId)
+                        {
+                            trip = trips[j];
+                        }
+                        j++;
+                    }
                     tickfound = true;
                     console.log(`\nTicket #${tickets[i].id}
 Passager : ${tickets[i].passengerName}
@@ -207,7 +219,7 @@ Prix : ${tickets[i].price} DH\n`)
 
             while(i < trips.length)
             {
-                if(trips[i].departure.trim == city)
+                if(trips[i].departure.toLowerCase().trim() == city.toLowerCase().trim())
                 {
                     cityfound = true
                     console.log(trips[i].departure + " → "

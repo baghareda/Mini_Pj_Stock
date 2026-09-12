@@ -14,7 +14,6 @@ const tickets = [
     { id: 10, passengerName: "Hamza", tripId: 4, seatNumber: 4, price: 120 }
 ];
 
-// 7yed ocupied seats from the available ones
 for (let ticket of tickets)
 {
     for(let trip of trips)
@@ -188,6 +187,7 @@ while(choice !== 0)
                     let trip;
                     let j = 0;
 
+                    //to add the dep and dest from trips
                     while (j < trips.length)
                     {
                         if (trips[j].id == tickets[i].tripId)
